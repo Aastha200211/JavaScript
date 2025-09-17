@@ -1,0 +1,15 @@
+function Throttle(func,limit){
+    let inThrottle;
+    return function(...args){
+        if(!inThrottle){
+            func.apply(this,args);
+            inThrottle=True
+            setTimeout(()=>inThrottle=false,limit);
+
+        }
+    }
+}
+const logThrottle = throttle(() => console.log("Throttled!"), 1000);
+logThrottle(); logThrottle(); // Executes only once per 1 second
+
+//Ensures a function runs at most once every limit milliseconds.
