@@ -1,0 +1,11 @@
+function debounce(func,delay){
+    let Timer;
+    return function(...args){
+        clearTimeout(Timer);
+        Timer=setTimeout(() => func.apply(this,args),delay);
+    };
+}
+const log = debounce(() => console.log("Debounced!"), 1000);
+log(); log(); log(); // Only executes once after 1 second
+
+//Waits until a function stops being called for delay milliseconds.
