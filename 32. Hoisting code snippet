@@ -1,0 +1,52 @@
+// ============================
+// Example 1: var hoisting
+
+console.log("---- var hoisting ----");
+console.log(a); // Output: undefined (hoisted but not assigned yet)
+var a = 10;
+console.log(a); // Output: 10
+
+// ============================
+// Example 2: let and const hoisting
+
+console.log("---- let & const hoisting ----");
+try {
+  console.log(b); // ReferenceError (TDZ)
+} catch (e) {
+  console.log("Error accessing 'b' before declaration ->", e.message);
+}
+let b = 20;
+
+try {
+  console.log(c); // ReferenceError (TDZ)
+} catch (e) {
+  console.log("Error accessing 'c' before declaration ->", e.message);
+}
+const c = 30;
+
+console.log("b after declaration:", b); // 20
+console.log("c after declaration:", c); // 30
+
+// ============================
+// Example 3: Function Declaration Hoisting
+console.log("---- function declaration hoisting ----");
+sayHello(); // Works fine
+
+function sayHello() {
+  console.log("Hello! (from function declaration)");
+}
+
+// ============================
+// Example 4: Function Expression Hoisting
+console.log("---- function expression hoisting ----");
+try {
+  sayHi(); // Error: sayHi is not a function
+} catch (e) {
+  console.log("Error calling 'sayHi' before definition ->", e.message);
+}
+
+var sayHi = function () {
+  console.log("Hi! (from function expression)");
+};
+
+sayHi(); // Works after assignment
