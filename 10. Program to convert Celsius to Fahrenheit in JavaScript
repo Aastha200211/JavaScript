@@ -1,4 +1,4 @@
-//Program to convert Fahrenheit to Celsius in JavaScript?
+//Program to convert CelsiustoFahrenheit in JavaScript?
 function CelsiustoFahrenheit(celsius){
     return celsius*9/5+32
 }
